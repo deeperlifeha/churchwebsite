@@ -1,0 +1,11 @@
+{
+  "name": "deeper-life-harrisburg-rides",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-11",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "vars": {
+    "ALLOWED_ORIGIN": "https://deeperlifeha.github.io",
+    "RIDE_EMAIL_TO": "deeperlifeha@gmail.com"
+  }
+}

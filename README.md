@@ -1,6 +1,18 @@
 # Deeper Life Bible Church, Harrisburg
 
-Complete static website. No build step, dependencies, API keys, or Sites account required. All website source and images are in `site/`. The prayer form uses FormSubmit for email delivery and requires the church to activate its email address before delivery can be verified.
+Static church website with email-only ride and prayer requests. Pages and the automatically updated Harrisburg YouTube playlist require no build step or API keys. Both forms submit directly to FormSubmit for delivery to deeperlifeha@gmail.com.
+
+## Current working version
+
+Six pages: Home, Our Church, Watch & Learn, Visit Us, Prayer Wall, and Request a Ride. Added visitor FAQs, weekly services, a recurring Sunday calendar download, ministry information, a homepage ride invitation, and page-specific descriptions. Preserved the established design, photography, and Harrisburg YouTube channel.
+
+The ride form collects name, phone, optional email, pickup address, service date, passenger count, return-trip preference, notes, and consent. It submits an HTTPS POST to FormSubmit and continues to its CAPTCHA/confirmation flow. A request is never described as a confirmed booking. Visitors can also call or email the church directly.
+
+**Email delivery still needs an inbox check.** Submit a non-sensitive setup request, complete the provider confirmation, and activate any FormSubmit email received at deeperlifeha@gmail.com. Then submit another request and verify actual receipt. No real test request was sent by the assistant. Prayer-request activation follows the same process.
+
+**SMS is paused at the owner's request.** The designated Twilio recipient was verified, but no sender was purchased and no SMS integration was activated. The optional backend in ride-service/ and unused ride-config.js are retained for future work; the live form does not call them or load Twilio/Resend/Turnstile.
+
+Checks: all six pages passed local-link and navigation checks; ride JavaScript syntax passed. Previous desktop/mobile review and YouTube player check passed. GitHub Pages deployment runs after changes are pushed to main, when Pages is configured to use GitHub Actions.
 
 ## Preview
 
@@ -8,20 +20,9 @@ Install Node.js 18 or later, then run `npm start` (or `node server.mjs`) from th
 
 Alternatively: `python -m http.server 4174 --directory site`.
 
-## Push to GitHub
+## Update the existing GitHub repository
 
-Create an empty GitHub repository. In this folder run:
-
-```sh
-git init
-git add .
-git commit -m "Add Deeper Life Harrisburg website"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
-```
-
-Replace YOUR-USERNAME and YOUR-REPOSITORY. This package contains no Git remote or credentials.
+The source repository is https://github.com/deeperlifeha/churchwebsite. Copy the updated files into a checkout of that repository, review the changes, commit, and push to main when ready to publish. Do not create a new repository or overwrite existing Git history. This download contains source files but no Git history or credentials.
 
 ## Publish with GitHub Pages
 
@@ -40,7 +41,10 @@ The existing deeperlifeha.org domain has not been changed. Connect a custom doma
 - `site/style.css`: responsive shared design.
 - `site/prayer.html`: prayer form and approved public prayer wall.
 - `site/prayer-requests.js`: approved public requests; never put private requests or email addresses here.
-- Header and footer HTML is intentionally repeated so pages work without JavaScript; update all five pages when changing shared information.
+- `site/ride.html`: transportation request page.
+- `site/ride-config.js`: unused optional SMS-backend configuration; no secrets.
+- `site/sunday-worship.ics`: recurring Sunday worship calendar.
+- Header and footer HTML is intentionally repeated so pages work without JavaScript; update all six pages when changing shared information.
 - Our Church, Watch & Learn, Visit Us, and Prayer Wall links open new tabs. Home stays in the same tab.
 
 ## YouTube
