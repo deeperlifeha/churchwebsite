@@ -14,6 +14,8 @@ for(const name of pages){
   assert.ok(target.startsWith(root+path.sep) && existsSync(target),`${name}: missing local target ${url}`);
  }
 }
-const config=readFileSync('site/ride-config.js','utf8');
-assert.ok(!/TWILIO_AUTH_TOKEN|RESEND_API_KEY/.test(config),'Secrets must not be in public config');
+const ride=readFileSync('site/ride.html','utf8');
+assert.ok(ride.includes('action="https://formsubmit.co/deeperlifeha@gmail.com" method="POST"'),'Ride form must POST to the church email service');
+assert.ok(!ride.includes('name="_captcha" value="false"'),'Keep submission verification enabled');
+for(const field of ['Full name','Phone','Pickup address','Service date','Passengers','Return trip','Consent']) assert.ok(ride.includes(`name="${field}"`),`Missing ride email field: ${field}`);
 console.log(`Checked ${pages.length} pages: headings, active navigation, ride links, and local assets.`);
