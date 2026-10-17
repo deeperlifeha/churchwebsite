@@ -26,3 +26,4 @@ Imported October 17, 2026 from the public @dlbcharrisburg profile at the churchâ
 ## Church photo collection
 
 203 photographs supplied by the church owner in churchweb.zip. Web-sized copies and thumbnails are in site/gallery/church/. photos.json maps each file to its original filename. Original ZIP unchanged; exported web images are auto-oriented and omit source EXIF metadata.
+site/our-church-bible.png: AI-generated with the built-in image tool. Prompt: Open Bible on weathered stone, olive branch, empty wooden cross on distant Judean-inspired hills at golden sunrise; cinematic landscape, navy shadows and amber light, no people or typography.
