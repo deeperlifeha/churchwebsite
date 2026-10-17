@@ -95,3 +95,7 @@ The “I prayed for this” button is a personal reminder saved on the visitor's
 ## Social profiles
 
 Every page footer links to YouTube, Instagram (https://www.instagram.com/dlbcharrisburg/), and TikTok (https://www.tiktok.com/@dlbcharrisburg). Social links open in new tabs.
+
+## Events calendar
+
+`site/events.html` shows the recurring annual schedule in Harrisburg Eastern Time. Browse months, switch years, or select Show the whole year. On phones the calendar becomes a dated service list. The first Sunday combines worship and communion (10:30 AM–12:30 PM). Second-Friday vigil (9:30 PM to Saturday midnight) replaces the usual Friday revival. Rules live in `site/calendar-data.js`; no annual manual updates are required. Run `node --test scripts/calendar.test.mjs` to verify recurrence rules.
