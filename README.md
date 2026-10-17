@@ -99,3 +99,7 @@ Every page footer links to YouTube, Instagram (https://www.instagram.com/dlbchar
 ## Instagram gallery
 
 The Gallery tab displays 12 imported images from the public @dlbcharrisburg Instagram profile (one photo and eleven reel covers), saved in `site/gallery/`. Original post links and source metadata are in `site/gallery/posts.json`; cards are rendered directly in `site/gallery.html`, so the gallery works without JavaScript or an Instagram login. Instagram may require login to view original posts. This is a dated import, not an automatic feed. To update, import new church images, add their source records, and update the gallery cards. No Instagram credentials or expiring CDN URLs are included.
+
+### Church photo album
+
+The gallery also contains 203 owner-supplied photos from churchweb.zip, alongside the existing Instagram collection. Each lazy-loaded thumbnail opens a larger JPEG in a new tab. Web copies are capped at 1600 pixels, thumbnails at 480 pixels; originals remain in the supplied ZIP. File mapping: site/gallery/church/photos.json. The one-time import script requires Python and Pillow and is not needed to run the website.

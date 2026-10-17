@@ -22,3 +22,7 @@ Imported October 17, 2026 from the public @dlbcharrisburg profile at the churchâ
 - gallery/instagram-12.jpg: https://www.instagram.com/dlbcharrisburg/reel/DZVGXZaxXZe/
 
 - `site/pastors-bello.jpg`: photo of Pastors Vincent and Adunola Bello supplied by the church owner (IMG_33631.JPG), added to Visit Us with their welcome message.
+
+## Church photo collection
+
+203 photographs supplied by the church owner in churchweb.zip. Web-sized copies and thumbnails are in site/gallery/church/. photos.json maps each file to its original filename. Original ZIP unchanged; exported web images are auto-oriented and omit source EXIF metadata.
