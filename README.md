@@ -4,7 +4,7 @@ Static church website with email-only ride and prayer requests. Pages and the au
 
 ## Current working version
 
-Seven pages: Home, Our Church, Watch & Learn, Visit Us, Prayer Wall, Events, and Request a Ride. Ride requests post directly to FormSubmit for delivery to deeperlifeha@gmail.com. No SMS backend is included or enabled.
+Eight pages: Home, Our Church, Watch & Learn, Visit Us, Prayer Wall, Events, Request a Ride, and Gallery. Ride requests post directly to FormSubmit for delivery to deeperlifeha@gmail.com. No SMS backend is included or enabled.
 
 The ride form collects name, phone, optional email, pickup address, service date, passengers, return-trip preference, notes, and consent. The service is matched to the Events calendar, including communion and vigil exceptions. Requests are not confirmed bookings.
 
@@ -40,7 +40,7 @@ The existing deeperlifeha.org domain has not been changed. Connect a custom doma
 - `site/ride.html`: transportation request page.
 - `site/ride.js` and `site/ride-validation.js`: service-date validation.
 - `site/events.html`: recurring yearly service calendar.
-- Header and footer HTML is intentionally repeated so pages work without JavaScript; update all seven pages when changing shared information.
+- Header and footer HTML is intentionally repeated so pages work without JavaScript; update all eight pages when changing shared information.
 - Our Church, Watch & Learn, Visit Us, and Prayer Wall links open new tabs. Home stays in the same tab.
 
 ## YouTube
@@ -95,3 +95,7 @@ Every page footer links to YouTube, Instagram (https://www.instagram.com/dlbchar
 ## Events calendar
 
 `site/events.html` shows the recurring annual schedule in Harrisburg Eastern Time. Browse months, switch years, or select Show the whole year. On phones the calendar becomes a dated service list. The first Sunday combines worship and communion (10:30 AM–12:30 PM). Second-Friday vigil (9:30 PM to Saturday midnight) replaces the usual Friday revival. Rules live in `site/calendar-data.js`; no annual manual updates are required. Run `node --test scripts/calendar.test.mjs` to verify recurrence rules.
+
+## Instagram gallery
+
+The Gallery tab displays 12 imported images from the public @dlbcharrisburg Instagram profile (one photo and eleven reel covers), saved in `site/gallery/`. Original post links and source metadata are in `site/gallery/posts.json`; cards are rendered directly in `site/gallery.html`, so the gallery works without JavaScript or an Instagram login. Instagram may require login to view original posts. This is a dated import, not an automatic feed. To update, import new church images, add their source records, and update the gallery cards. No Instagram credentials or expiring CDN URLs are included.
