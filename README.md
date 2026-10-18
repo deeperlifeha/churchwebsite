@@ -4,15 +4,11 @@ Static church website with email-only ride and prayer requests. Pages and the au
 
 ## Current working version
 
-Six pages: Home, Our Church, Watch & Learn, Visit Us, Prayer Wall, and Request a Ride. Added visitor FAQs, weekly services, a recurring Sunday calendar download, ministry information, a homepage ride invitation, and page-specific descriptions. Preserved the established design, photography, and Harrisburg YouTube channel.
+Eight pages: Home, Our Church, Watch & Learn, Visit Us, Prayer Wall, Events, Request a Ride, and Gallery. Ride requests post directly to FormSubmit for delivery to deeperlifeha@gmail.com. No SMS backend is included or enabled.
 
-The ride form collects name, phone, optional email, pickup address, service date, passenger count, return-trip preference, notes, and consent. It submits an HTTPS POST to FormSubmit and continues to its CAPTCHA/confirmation flow. A request is never described as a confirmed booking. Visitors can also call or email the church directly.
+The ride form collects name, phone, optional email, pickup address, service date, passengers, return-trip preference, notes, and consent. The service is matched to the Events calendar, including communion and vigil exceptions. Requests are not confirmed bookings.
 
-**Email delivery still needs an inbox check.** Submit a non-sensitive setup request, complete the provider confirmation, and activate any FormSubmit email received at deeperlifeha@gmail.com. Then submit another request and verify actual receipt. No real test request was sent by the assistant. Prayer-request activation follows the same process.
-
-**SMS is paused at the owner's request.** The designated Twilio recipient was verified, but no sender was purchased and no SMS integration was activated. The optional backend in ride-service/ and unused ride-config.js are retained for future work; the live form does not call them or load Twilio/Resend/Turnstile.
-
-Checks: all six pages passed local-link and navigation checks; ride JavaScript syntax passed. Previous desktop/mobile review and YouTube player check passed. GitHub Pages deployment runs after changes are pushed to main, when Pages is configured to use GitHub Actions.
+**Email delivery needs inbox verification.** After publishing, send a non-sensitive setup request, complete the provider CAPTCHA, and confirm FormSubmit’s activation email in the church inbox if prompted. Send a second setup request and verify receipt. No real request or test email has been sent by the assistant.
 
 ## Preview
 
@@ -42,9 +38,9 @@ The existing deeperlifeha.org domain has not been changed. Connect a custom doma
 - `site/prayer.html`: prayer form and approved public prayer wall.
 - `site/prayer-requests.js`: approved public requests; never put private requests or email addresses here.
 - `site/ride.html`: transportation request page.
-- `site/ride-config.js`: unused optional SMS-backend configuration; no secrets.
-- `site/sunday-worship.ics`: recurring Sunday worship calendar.
-- Header and footer HTML is intentionally repeated so pages work without JavaScript; update all six pages when changing shared information.
+- `site/ride.js` and `site/ride-validation.js`: service-date validation.
+- `site/events.html`: recurring yearly service calendar.
+- Header and footer HTML is intentionally repeated so pages work without JavaScript; update all eight pages when changing shared information.
 - Our Church, Watch & Learn, Visit Us, and Prayer Wall links open new tabs. Home stays in the same tab.
 
 ## YouTube
@@ -95,3 +91,15 @@ The “I prayed for this” button is a personal reminder saved on the visitor's
 ## Social profiles
 
 Every page footer links to YouTube, Instagram (https://www.instagram.com/dlbcharrisburg/), and TikTok (https://www.tiktok.com/@dlbcharrisburg). Social links open in new tabs.
+
+## Events calendar
+
+`site/events.html` shows the recurring annual schedule in Harrisburg Eastern Time. Browse months, switch years, or select Show the whole year. On phones the calendar becomes a dated service list. The first Sunday combines worship and communion (10:30 AM–12:30 PM). Second-Friday vigil (9:30 PM to Saturday midnight) replaces the usual Friday revival. Rules live in `site/calendar-data.js`; no annual manual updates are required. Run `node --test scripts/calendar.test.mjs` to verify recurrence rules.
+
+## Instagram gallery
+
+The Gallery tab displays 12 imported images from the public @dlbcharrisburg Instagram profile (one photo and eleven reel covers), saved in `site/gallery/`. Original post links and source metadata are in `site/gallery/posts.json`; cards are rendered directly in `site/gallery.html`, so the gallery works without JavaScript or an Instagram login. Instagram may require login to view original posts. This is a dated import, not an automatic feed. To update, import new church images, add their source records, and update the gallery cards. No Instagram credentials or expiring CDN URLs are included.
+
+### Church photo album
+
+The gallery also contains 203 owner-supplied photos from churchweb.zip, alongside the existing Instagram collection. Each lazy-loaded thumbnail opens a larger JPEG in a new tab. Web copies are capped at 1600 pixels, thumbnails at 480 pixels; originals remain in the supplied ZIP. File mapping: site/gallery/church/photos.json. The one-time import script requires Python and Pillow and is not needed to run the website.

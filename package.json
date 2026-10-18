@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test ride-service/worker.test.mjs",
+    "test": "node --test scripts/calendar.test.mjs scripts/ride.test.mjs",
     "check": "node scripts/check-site.mjs"
   },
   "engines": {
