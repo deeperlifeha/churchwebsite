@@ -1,0 +1,3 @@
+# The static site lives in site/ and needs no build step.
+[build]
+  publish = "site"
