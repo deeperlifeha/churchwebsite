@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test scripts/calendar.test.mjs scripts/ride.test.mjs",
-    "check": "node scripts/check-site.mjs"
+    "check": "node scripts/check-site.mjs",
+    "gallery:update": "python scripts/import-gallery.py",
+    "gallery:watch": "python scripts/gallery-watch.py"
   },
   "engines": {
     "node": ">=18"
